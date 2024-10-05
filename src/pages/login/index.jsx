@@ -6,17 +6,20 @@ function Login() {
   return (
     
       <div className='container'>
-        <div>
+        <div className='div_bemvindo'>
           <h1>Bem-vindo</h1>
-          <p>Faça seu login</p>
+          <p>Faça seu login para prosseguir</p>
           <img src={Pc} alt="" />
         </div>
         <form action="">
-          <p>Ainda não tem login?<a href="">Cadastro</a></p>
-          <h1>Login</h1>
-          <input type="text" name='name'/>
-          <input type="password" name='password'/>
-          <button type='button'>Cadastrar</button>
+          
+            <p>Ainda não tem login?<a href=""> Cadastro</a></p>
+            <h1>Login</h1>
+        
+            <input type="text" name='name' placeholder='Nome'/>
+            <input type="password" name='password' placeholder='Senha'/>
+            <button type='button' className='button-37'>Entrar</button>
+          
         </form>
       </div>
       

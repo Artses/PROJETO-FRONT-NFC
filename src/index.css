@@ -9,5 +9,6 @@ body{
   width: 100vw;
   font-family: "Poppins", sans-serif;
   background-image: url('./assets/background_login.svg');
-  background-size: 100%;
+  background-size: cover;
+  font-size: 16px;
 }
