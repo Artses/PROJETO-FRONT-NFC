@@ -1,5 +1,6 @@
 
 import './style.css'
+import { Link } from "react-router-dom"
 import Pc from '../../assets/pc_img_login.png'
 function Login() {
 
@@ -13,7 +14,7 @@ function Login() {
         </div>
         <form action="">
           
-            <p>Ainda não tem login?<a href=""> Cadastro</a></p>
+            <p>Ainda não tem login?<a><Link to="/Cadastro">Cadastro</Link></a></p>
             <h1>Login</h1>
         
             <input type="text" name='name' placeholder='Nome'/>
