@@ -1,8 +1,8 @@
-import 'style.css'
+import './style.css'
 
-function Cadastro(){
-    return
-    <h1>Olá mundo</h1>
+const Cadastro = () =>{
+    return(
+        <h1>Pagina cadastro</h1>
+    )
 }
-
 export default Cadastro
