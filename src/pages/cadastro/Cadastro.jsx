@@ -10,7 +10,7 @@ const Cadastro = () =>{
         <form action="" >
           <div className='titulo'>
             <h1>Cadastro</h1>
-            <p>Já tem conta? <Link to="/index">Entre aqui</Link></p>
+            <p>Já tem conta? <Link to="/">Entre aqui</Link></p>
           </div>
 
           <div className='nome_form'>
