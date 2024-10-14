@@ -1,0 +1,11 @@
+.container_view{
+    background-color: white;
+    margin-top: 1em;
+    min-height: 100vh;
+    max-width: 100vw;
+
+    & h1{
+        text-align: center;
+        padding-top: 2em;
+    }
+}
