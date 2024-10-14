@@ -1,0 +1,13 @@
+[
+    {"matricula":12303364,"aluno":"Nicollas","presencas":"46","faltas":"65"},
+    {"matricula":12302031,"aluno":"Matheus","presencas":"46","faltas":"65"},
+    {"matricula":12345678,"aluno":"João","presencas":"46","faltas":"65"},
+    {"matricula":12398765,"aluno":"Ana","presencas":"52","faltas":"59"},
+    {"matricula":12456789,"aluno":"Beatriz","presencas":"60","faltas":"51"},
+    {"matricula":12365478,"aluno":"Carlos","presencas":"49","faltas":"62"},
+    {"matricula":12567894,"aluno":"Daniel","presencas":"58","faltas":"53"},
+    {"matricula":12437856,"aluno":"Eduarda","presencas":"54","faltas":"57"},
+    {"matricula":12654321,"aluno":"Fernanda","presencas":"63","faltas":"48"},
+    {"matricula":12765432,"aluno":"Gabriel","presencas":"50","faltas":"61"}
+  ]
+  
