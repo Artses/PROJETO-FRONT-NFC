@@ -20,7 +20,7 @@
 .container_home{
     background-color: white;
     margin-top: 1em;
-    min-height: 100vh;
+    height: 100vh;
     max-width: 100vw;
 }
 .perfil{
