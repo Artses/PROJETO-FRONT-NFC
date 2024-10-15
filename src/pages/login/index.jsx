@@ -14,7 +14,7 @@ function Login() {
         </div>
         <form action="">
           
-            <p>Ainda não tem login?<a><Link to="/Cadastro">Cadastro</Link></a></p>
+            <p>Ainda não tem login?<Link to="/Cadastro">Cadastro</Link></p>
             <h1>Login</h1>
         
             <input type="text" name='name' placeholder='Nome'/>
