@@ -1,0 +1,49 @@
+﻿@page "/Chamada"
+@inject ChamadaClient ChamadaService
+<h3>Inserir Chamada</h3>
+
+<EditForm Model="@novaChamada" OnValidSubmit="@HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="aluno">Aluno:</label>
+        <InputNumber id="aluno" class="form-control" @bind-Value="novaChamada.Aluno" />
+    </div>
+
+    <div>
+        <label for="tipoChamada">Tipo de Chamada:</label>
+        <InputText id="tipoChamada" class="form-control" @bind-Value="novaChamada.TipoChamada" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Inserir Chamada</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(mensagem))
+{
+    <p class="@mensagemClasse">@mensagem</p>
+}
+
+@code {
+    private Chamada novaChamada = new Chamada();
+    private string? mensagem;
+    private string? mensagemClasse;
+
+    private async Task HandleSubmit()
+    {
+        var sucesso = await ChamadaService.InserirChamadaAsync(novaChamada);
+
+        if (sucesso)
+        {
+            mensagem = "Chamada inserida com sucesso!";
+            mensagemClasse = "text-success";
+            novaChamada = new Chamada(); 
+        }
+
+        else
+        {
+            mensagem = "Erro ao inserir chamada.";
+            mensagemClasse = "text-danger";
+        }
+    }
+}

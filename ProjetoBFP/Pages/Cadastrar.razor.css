@@ -1,0 +1,130 @@
+﻿/* Arquivo CSS */
+.Background {
+    min-height: 100vh;
+    width: 100vw;
+    font-family: "Poppins", sans-serif;
+    background-color: #00bfae;
+    background-size: cover;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+.login-container {
+    display: flex;
+    height: 74vh;
+    justify-content: space-between;
+}
+
+.left-panel {
+    background-color: #00bfae;
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    border: 2px solid #00a08a
+}
+
+.container {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: row;
+    background-color: #00bfae;
+    width: 50vw;
+    height: 74vh;
+}
+
+.left-panel h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.left-panel p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.left-panel img {
+    width: 70%;
+    margin-top: 20px;
+}
+
+.right-panel {
+    background-color: white;
+    width: 50%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-left: 3px solid #ffff;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 1em;
+}
+
+.right-panel h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-field {
+    width: 60vh;
+    background-color: black;
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 2.5em;
+    height: 3.5vh;
+    font-size: 1.3em;
+    box-shadow: none;
+    outline: none;
+}
+
+    .input-field:focus {
+        border-color: #00bfae;
+        outline: none;
+    }
+        
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #00bfae;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .login-button:hover {
+        background-color: #00a08a;
+    }
+
+p {
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    color: #00bfae;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+v

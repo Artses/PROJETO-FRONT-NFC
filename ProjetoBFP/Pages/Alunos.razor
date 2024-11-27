@@ -1,0 +1,90 @@
+﻿@page "/Alunos"
+@inject AlunosClient chamadaClient
+
+<div class="header">
+    <div class="logo">
+        <img src="/src/logobfp-fotor-20241126174159.png" class="logo-img">
+    </div>
+    <h1 class="titulo"></h1>
+    <nav class="nav">
+        <div class="buttons">
+            <a href="/Home">
+                <i class="fas fa-home"></i>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path d="M288 0L0 288h64v224h128V384h128v128h128V288h64L288 0z" />
+                </svg>
+            </a>
+            <a href="/Alunos">
+                <i class="fas fa-save"></i>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M432 64L208 64c-8.8 0-16 7.2-16 16l0 16-64 0 0-16c0-44.2 35.8-80 80-80L432 0c44.2 0 80 35.8 80 80l0 224c0 44.2-35.8 80-80 80l-16 0 0-64 16 0c8.8 0 16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zM0 192c0-35.3 28.7-64 64-64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 192zm64 32c0 17.7 14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 192c-17.7 0-32 14.3-32 32z" />
+                </svg>
+            </a>
+            <a href="/Chamada">
+                <i class="fas fa-check"></i>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M207.4 493.1l-7.4 7.4c-9.4 9.4-24.6 9.4-34 0l-166-166c-9.4-9.4-9.4-24.6 0-34l7.4-7.4c9.4-9.4 24.6-9.4 34 0l145.6 145.6 258.8-258.8c9.4-9.4 24.6-9.4 34 0l7.4 7.4c9.4 9.4 9.4 24.6 0 34L207.4 493.1z" />
+                </svg>
+            </a>
+            <a href="/">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                </svg>
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+    </nav>
+</div>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Matricula</th>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+            @foreach(var aluno in chamadas)
+            {
+            <tbody>
+                <td>@aluno.Id</td>
+                <td>@aluno.AlunoId</td>
+                <td>@aluno.AlunoNome</td>
+                <td>@aluno.Tipo</td>
+                <td>@DateTime.Parse(aluno.Data).ToString("dd/MM/yyyy HH:mm")</td>
+            </tbody>
+            }
+    </table>
+</body>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/src/logobfp-fotor-20241126174159.png" class="logo-img">
+            <i class="fas fa-microchip"></i>
+        </div>
+        <div class="footer-info">
+            <p>© 2024 PFP Tech. Todos os direitos reservados.</p>
+            <p>Endereço: Rua Exemplo, 123 - Cidade, Estado</p>
+            <p>Email: contato@pfptech.com.br</p>
+        </div>
+        <div class="footer-contact">
+            <p>Entre em Contato:</p>
+            <a href="https://api.whatsapp.com/send?phone=5531983435887" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="contact-icon">
+                    <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+@code {
+    List<Models.Alunos> chamadas = new global::System.Collections.Generic.List<global::ProjetoBFP.Models.Alunos>();
+    protected override async Task OnInitializedAsync()
+    {
+        chamadas = await chamadaClient.GetChamadas();
+    }
+}

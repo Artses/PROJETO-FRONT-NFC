@@ -1,0 +1,83 @@
+﻿@page "/Cadastro"
+@inject NavigationManager Navigation
+@inject CadastroClient AuthService
+
+<section class="Background">
+    <div class="container">
+        <div class="login-container">
+            <div class="left-panel">
+                <h1>Bem-vindo</h1>
+                <p>Cadastre-se para acessar a aplicação</p>
+                <img src="./src/pc_img_login.png" alt="Computador" />
+            </div>
+
+            <div class="right-panel">
+                <h1>Cadastro</h1>
+
+                <EditForm Model="@cadastroModel" OnValidSubmit="HandleCadastro">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+                    <div class="inputs">
+                        <InputText type="email"
+                                   id="email"
+                                   class="form-control"
+                                   placeholder="Email"
+                                   @bind-Value="cadastroModel.Email" />
+
+                        <InputText type="password"
+                                   id="password"
+                                   class="form-control"
+                                   placeholder="Senha"
+                                   @bind-Value="cadastroModel.Senha" />
+
+                        <InputText type="password"
+                                   id="confirm-password"
+                                   class="form-control"
+                                   placeholder="Confirmar Senha"
+                                   @bind-Value="cadastroModel.ConfirmarSenha" />
+                    </div>
+                    <button type="submit" class="login-button">Cadastrar</button>
+
+                    <p>Já tem cadastro? <NavLink href="/">Login</NavLink></p>
+                </EditForm>
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <p class="text-danger">@errorMessage</p>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private Cadastro cadastroModel = new Cadastro();
+    private string? errorMessage;
+
+    private async Task HandleCadastro()
+    {
+        try
+        {
+            if (cadastroModel.Senha != cadastroModel.ConfirmarSenha)
+            {
+                errorMessage = "As senhas não coincidem!";
+                return;
+            }
+
+            var result = await AuthService.CadastrarAsync(cadastroModel);
+
+            if (result.Success)
+            {
+                Navigation.NavigateTo("/");
+            }
+            else
+            {
+                errorMessage = result.Message;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Erro ao realizar cadastro: {ex.Message}";
+        }
+    }
+}
+
