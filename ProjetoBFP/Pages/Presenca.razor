@@ -1,24 +1,77 @@
 ﻿@page "/Chamada"
 @inject ChamadaClient ChamadaService
-<h3>Inserir Chamada</h3>
+@inject NavigationManager Navigation
 
-<EditForm Model="@novaChamada" OnValidSubmit="@HandleSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-
-    <div>
-        <label for="aluno">Aluno:</label>
-        <InputNumber id="aluno" class="form-control" @bind-Value="novaChamada.Aluno" />
+<body>
+<div class="header">
+    <div class="logo">
+        <img src="/src/logobfp-fotor-20241126174159.png" class="logo-img">
     </div>
+        <div class="titulo"><h3>Fazer Chamada</h3></div>
+    <nav class="nav">
+        <div class="buttons">
+            <a href="/Home">
+                <i class="fas fa-home"></i>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path d="M288 0L0 288h64v224h128V384h128v128h128V288h64L288 0z" />
+                </svg>
+            </a>
+            <a href="/Alunos">
+                <i class="fas fa-save"></i>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M432 64L208 64c-8.8 0-16 7.2-16 16l0 16-64 0 0-16c0-44.2 35.8-80 80-80L432 0c44.2 0 80 35.8 80 80l0 224c0 44.2-35.8 80-80 80l-16 0 0-64 16 0c8.8 0 16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zM0 192c0-35.3 28.7-64 64-64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 192zm64 32c0 17.7 14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 192c-17.7 0-32 14.3-32 32z" />
+                </svg>
+            </a>
+                <a href="/Scannear">
+                <i class="fas fa-check"></i>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M207.4 493.1l-7.4 7.4c-9.4 9.4-24.6 9.4-34 0l-166-166c-9.4-9.4-9.4-24.6 0-34l7.4-7.4c9.4-9.4 24.6-9.4 34 0l145.6 145.6 258.8-258.8c9.4-9.4 24.6-9.4 34 0l7.4 7.4c9.4 9.4 9.4 24.6 0 34L207.4 493.1z" />
+                </svg>
+            </a>
+            <a href="/">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                </svg>
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+    </nav>
+</div>
 
-    <div>
-        <label for="tipoChamada">Tipo de Chamada:</label>
-        <InputText id="tipoChamada" class="form-control" @bind-Value="novaChamada.TipoChamada" />
-    </div>
+    <main>
+        <section class="chamada">
+            <EditForm Model="@novaChamada" OnValidSubmit="@HandleSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                    <div>
+                        <label for="aluno">Matrícula</label>
+                        <InputNumber id="aluno" class="form-control" @bind-Value="novaChamada.Aluno" />
+                    </div>
 
-    <button type="submit" class="btn btn-primary">Inserir Chamada</button>
-</EditForm>
+                    <div class="div-chamada">
+                        <label for="tipoChamada">Tipo de Chamada</label>
+                        <InputSelect id="tipoChamada" class="form-control" @bind-Value="novaChamada.TipoChamada">
+                            <option value="Vazio"></option>
+                            <option value="Entrada">Entrada</option>
+                            <option value="Saída">Saída</option>
+                        </InputSelect>
+                    </div>
+                <button type="submit" class="btn btn-primary botao-chamada">Inserir Chamada</button>
+            </EditForm>
+        </section>
+    </main>
 
+    <footer class="text-center text-white ">
+        <div class="text-center p-3">
+                © 2024 Copyright:
+            <a class="text-white">
+                BFP Tech. Todos os direitos reservados.
+                Endereço: Rua Exemplo, 123 - Cidade, Estado
+                Email: contato@pfptech.com.br
+            </a>
+        </div>
+    </footer>
+</body>
 @if (!string.IsNullOrEmpty(mensagem))
 {
     <p class="@mensagemClasse">@mensagem</p>
@@ -38,6 +91,8 @@
             mensagem = "Chamada inserida com sucesso!";
             mensagemClasse = "text-success";
             novaChamada = new Chamada(); 
+
+            Navigation.NavigateTo("/Alunos");
         }
 
         else

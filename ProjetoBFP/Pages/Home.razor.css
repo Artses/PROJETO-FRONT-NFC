@@ -14,6 +14,7 @@ body {
     min-height: 100vh;
 }
 
+
 .header {
     background-color: #00bfae;
     color: #fff;
@@ -22,10 +23,11 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    height: 18vh;
 }
 
 main{
-    height:80vh;
+    height:90vh;
 }
 
 .buttons{
@@ -43,6 +45,7 @@ main{
 
 .titulo {
     margin-top: 10px;
+    margin-left: 4.7em;
     text-align: center;
     flex-grow: 1;
 }
@@ -56,11 +59,6 @@ main{
 .logo {
     font-weight: bold;
     font-size: 1.5rem;
-    display:flex;
-    align-items:center;
-}
-
-.footer-logo{
     display:flex;
     align-items:center;
 }
@@ -121,11 +119,9 @@ main{
 
 .content {
     text-align: center;
-    margin: 2rem auto;
-    max-width: 800px;
+    margin: 0 auto;
     padding: 1rem;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 50%;
 }
 
     .content h3 {

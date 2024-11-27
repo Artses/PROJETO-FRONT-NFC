@@ -9,7 +9,7 @@ namespace ProjetoBFP.Client
     {
         public async Task<bool> InserirChamadaAsync(Chamada chamada)
         {
-            chamada.Professor = 1;
+            chamada.Professor = 3;
 
             var options = new JsonSerializerOptions
             {

@@ -7,7 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\sample-data\**" />
+    <Content Remove="wwwroot\sample-data\**" />
+    <EmbeddedResource Remove="wwwroot\sample-data\**" />
+    <None Remove="wwwroot\sample-data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\Scanear.cs" />
+    <Compile Remove="Pages\Scanner.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\QrCode.razor" />
+    <Content Remove="Pages\Scan.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,10 +34,11 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\QrCode.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Scan.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\QrCode.razor" />
+    <UpToDateCheckInput Remove="Pages\Scan.razor" />
   </ItemGroup>
 
 </Project>

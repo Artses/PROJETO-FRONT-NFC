@@ -1,10 +1,11 @@
-﻿@page "/qrcode"
+﻿@page "/scannear"
 
 <body>
     <div class="header">
         <div class="logo">
             <img src="/src/logobfp-fotor-20241126174159.png" class="logo-img">
         </div>
+        <div class="titulo"><h3>Fazer Chamada</h3></div>
         <nav class="nav">
             <div class="buttons">
                 <a href="/Home">
@@ -19,8 +20,7 @@
                         <path d="M432 64L208 64c-8.8 0-16 7.2-16 16l0 16-64 0 0-16c0-44.2 35.8-80 80-80L432 0c44.2 0 80 35.8 80 80l0 224c0 44.2-35.8 80-80 80l-16 0 0-64 16 0c8.8 0 16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zM0 192c0-35.3 28.7-64 64-64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 192zm64 32c0 17.7 14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 192c-17.7 0-32 14.3-32 32z" />
                     </svg>
                 </a>
-                <a href="/Chamada">
-                    <i class="fas fa-check"></i>
+                <a href="/Scannear">
                     <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path d="M207.4 493.1l-7.4 7.4c-9.4 9.4-24.6 9.4-34 0l-166-166c-9.4-9.4-9.4-24.6 0-34l7.4-7.4c9.4-9.4 24.6-9.4 34 0l145.6 145.6 258.8-258.8c9.4-9.4 24.6-9.4 34 0l7.4 7.4c9.4 9.4 9.4 24.6 0 34L207.4 493.1z" />
                     </svg>
@@ -36,39 +36,30 @@
     </div>
 
     <main>
-        <section class="Background">
-            <div class="container">
-                <div class="qr-panel">
-                    <h1>QR Code</h1>
-                    <img src="qr_code_placeholder.png" alt="QR Code" class="qr-code" />
-                </div>
-            </div>
+        <section class="qr-code">
+            <img src="/src/qr-code.png" class="qr-img">
+        </section>
+        <hr classe="linha-horizontal">
+        <section class="content">
+            <h3>Banco Funcional de Presença</h3>
+            <p>
+                Para fazer a chamada à API escaneando um QR Code, basta primeiro usar um aplicativo de leitura de QR Code para escanear o código com a câmera do celular ou diretamente no navegador. Ao escanear, o QR Code é automaticamente processado, e o sistema te redireciona para a pagina de chamada usando o link contido no QR Code.
+            </p>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="/src/logobfp-fotor-20241126174159.png" class="logo-img">
-                <i class="fas fa-microchip"></i>
-            </div>
-            <div class="footer-info">
-                <p>© 2024 PFP Tech. Todos os direitos reservados.</p>
-                <p>Endereço: Rua Exemplo, 123 - Cidade, Estado</p>
-                <p>Email: contato@pfptech.com.br</p>
-            </div>
-            <div class="footer-contact">
-                <p>Entre em Contato:</p>
-                <a href="https://api.whatsapp.com/send?phone=5531983435887" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="contact-icon">
-                        <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
-                    </svg>
-                </a>
-            </div>
+    <footer class="text-center text-white ">
+        <div class="text-center p-3">
+            © 2024 Copyright:
+            <a class="text-white">
+                BFP Tech. Todos os direitos reservados.
+                Endereço: Rua Exemplo, 123 - Cidade, Estado
+                Email: contato@pfptech.com.br
+            </a>
         </div>
     </footer>
     <script src="/_framework/aspnetcore-browser-refresh.js"></script>
 </body>
-@code{
+@code {
 
 }
